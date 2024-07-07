@@ -5,9 +5,12 @@ from recipes.models import Recipe
 # Create your views here.
 
 def home(request):
-    recipes = Recipe.objects.filter(
+    queryset = Recipe.objects.filter(
         is_published=True
     ).order_by('-id')
+
+    recipes = get_list_or_404(queryset)
+    
     return render(request, 'recipes/pages/home.html', context={
         'recipes':recipes,
     }) 
