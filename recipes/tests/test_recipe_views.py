@@ -68,5 +68,18 @@ class RecipeViewsTest(RecipeTestBase):
         )
         self.assertEqual(response.status_code, 404)
 
+    def test_recipe_detail_template_loads_the_correct_recipe(self):
+        needed_test = 'This is a detail page - it loads one recipe'
+        
+        self.make_recipe(title=needed_test)
 
+        response = self.client.get(reverse(
+            'recipes:recipe', 
+            kwargs={
+                'id': 1
+            })
+        )
+        content = response.content.decode('utf-8')
+
+        self.assertIn(needed_test, content)
         
