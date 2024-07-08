@@ -47,6 +47,13 @@ class RecipeViewsTest(RecipeTestBase):
         )
         self.assertEqual(response.status_code, 404)
 
+    def test_recipe_category_template_loads_recipes(self):
+        self.make_recipe(title='Recipe Title')
+        response = self.client.get(reverse('recipes:category', args=(1,)))
+        content = response.content.decode('utf-8')
+
+        self.assertIn('Recipe Title', content)
+
 
     ## Detail
     def test_recipe_detail_view_function_is_correct(self):
