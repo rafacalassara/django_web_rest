@@ -19,7 +19,7 @@ def category(request, category_id):
         is_published=True
     ).order_by('-id')
 
-    recipes = get_object_or_404(queryset)
+    recipes = get_list_or_404(queryset)
 
     return render(request, 'recipes/pages/category.html', context={
         'recipes':recipes,
