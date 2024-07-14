@@ -1,6 +1,7 @@
+from parameterized import parameterized
+
 from .test_recipe_base import RecipeTestBase, Recipe
 from django.core.exceptions import ValidationError
-from parameterized import parameterized
 
 class RecipeModelsTest(RecipeTestBase):
     def setUp(self) -> None:
@@ -13,7 +14,7 @@ class RecipeModelsTest(RecipeTestBase):
             author=self.make_author(username='newuser', password='123456'),
             title='Recipe Title',
             description='Recipe Description',
-            slug='recipe-slug',
+            slug='recipe-slug-for-no-defaults',
             preparation_time=10,
             preparation_time_unit='Minutes',
             servings=5,
