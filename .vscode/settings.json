@@ -36,7 +36,7 @@
     }
   },
   "[django-html]": {
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "vscode.html-language-features",
     "editor.quickSuggestions": {
       "other": true,
